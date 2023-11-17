@@ -9,3 +9,6 @@ Route::get('/', function () {
 });
 
 Route::get('/alunos', [AlunosController::class, 'index']);
+Route::get('/alunos/create', [AlunosController::class, 'create']);
+
+Route::post('/alunos/create', [AlunosController::class, 'insert']);

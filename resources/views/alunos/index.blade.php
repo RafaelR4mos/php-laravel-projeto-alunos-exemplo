@@ -5,5 +5,5 @@
         @endforeach
     </ul>
 
-    <a href="series/create" class="btn btn-dark mt-2">Adicionar Aluno</a>
+    <a href="alunos/create" class="btn btn-dark mt-2">Adicionar Aluno</a>
 </x-layout>
