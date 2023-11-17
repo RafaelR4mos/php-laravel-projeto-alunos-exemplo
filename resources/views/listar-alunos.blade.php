@@ -12,7 +12,7 @@
 
 <ul>
     @foreach($alunos as $aluno)
-        <li> {{$aluno}} </li>
+        <li> {{ $aluno->nm_aluno }} </li>
     @endforeach
 </ul>
 
