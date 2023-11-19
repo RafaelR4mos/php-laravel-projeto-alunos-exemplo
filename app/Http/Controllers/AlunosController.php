@@ -36,4 +36,14 @@ class AlunosController extends Controller
 
         return redirect('alunos');
     }
+
+    public function destroy(int $id_aluno)
+    {
+        $aluno_to_delete = Aluno::find($id_aluno);
+        if($aluno_to_delete->delete()) {
+            return redirect('alunos');
+        } else {
+            return response()->json(['error' => 'Não foi possível excluir o recurso. Verifique os dados e tente novamente.'], 422);
+        }
+    }
 }
