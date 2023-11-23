@@ -5,10 +5,15 @@ use App\Models\Aluno;
 
 class AlunosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('authenticator')->except('index');
+    }
+
     public function index()
     {
         //Com limite de busca
-        $alunos = Aluno::orderBy('created_at', 'desc')->take(15)->get();
+        $alunos = Aluno::orderBy('created_at', 'desc')->take(10)->get();
 
         //Com Where
         //$alunos = Aluno::where('nm_aluno', 'Aron Renner')->get();
