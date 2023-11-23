@@ -13,6 +13,23 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-light bg-light d-flex justify-content-between align-items-center">
+        <div class="container">
+            <a class="navbar-brand" href="{{route('alunos.index')}}">Controle de alunos</a>
+
+            @auth
+            <form action="{{route('auth.logout')}}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-dark">Logout</button>
+            </form>
+            @endauth
+
+            @guest
+            <a href="{{route('login')}}" class="btn btn-dark">Faça login</a>
+            @endguest
+        </div>
+    </nav>
+
     <main class="container mt-4">
         <h1>{{ $title }}</h1>
         <hr>
