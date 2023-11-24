@@ -34,13 +34,20 @@ class AuthController extends Controller
 
     public function create(Request $request)
     {
+        $request->validate([
+            'email' => ['required'],
+            'name' => ['required', 'min:3'],
+            'password' => ['required', 'min:6', 'required_with:password_confirmation', 'same:password_confirmation'],
+            'password_confirmation' => ['min:6']
+        ]);
+
         $userData = $request->only(['email', 'password', 'name']);
         $userData['password'] = Hash::make($userData['password']);
 
         $user = User::create($userData);
         Auth::login($user);
 
-        return redirect()->route('alunos.index');
+        return redirect()->route('alunos.index')->with('mensagem.sucesso', "Usuário '{$user->name}' cadastrado com sucesso!");
     }
 
     public function logout()

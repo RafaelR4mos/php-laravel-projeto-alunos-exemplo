@@ -12,6 +12,8 @@ class AlunosController extends Controller
 
     public function index()
     {
+        $mensagemSucesso = session('mensagem.sucesso');
+
         //Com limite de busca
         $alunos = Aluno::orderBy('created_at', 'desc')->take(10)->get();
 
@@ -19,7 +21,8 @@ class AlunosController extends Controller
         //$alunos = Aluno::where('nm_aluno', 'Aron Renner')->get();
 
         return view('alunos.index', [
-            'alunos' => $alunos
+            'alunos' => $alunos,
+            'mensagemSucesso' => $mensagemSucesso
         ]);
     }
 

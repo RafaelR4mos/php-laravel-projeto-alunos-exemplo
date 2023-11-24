@@ -1,4 +1,10 @@
 <x-layout title="Alunos">
+    @isset($mensagemSucesso)
+        <div class="alert alert-success">
+            {{ $mensagemSucesso }}
+        </div>
+    @endisset
+
     <ul class="list-group">
         @foreach($alunos as $aluno)
             <li class="list-group-item d-flex justify-content-between align-items-center">
