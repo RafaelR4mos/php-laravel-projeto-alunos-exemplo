@@ -6,7 +6,7 @@ use App\Http\Controllers\AlunosController;
 use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
-    return redirect()->route('auth.login');
+    return redirect()->route('login');
 });
 
 Route::controller(AlunosController::class)->group(function () {
